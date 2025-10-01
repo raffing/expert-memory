@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Il Mio Portfolio</h1>
+            <nav>
+                <button id="adminBtn" class="admin-btn">Area Admin</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Public Portfolio Section -->
+    <main>
+        <div class="container">
+            <h2>I Miei Progetti</h2>
+            <div id="projectsGrid" class="projects-grid">
+                <!-- Projects will be dynamically added here -->
+            </div>
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <p>Nessun progetto disponibile al momento.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Admin Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login Admin</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Accedi</button>
+                <p id="loginError" class="error-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div id="adminModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close-admin">&times;</span>
+            <h2>Pannello Admin</h2>
+            
+            <!-- Add/Edit Project Form -->
+            <div class="admin-section">
+                <h3 id="formTitle">Aggiungi Nuovo Progetto</h3>
+                <form id="projectForm">
+                    <input type="hidden" id="projectId">
+                    <div class="form-group">
+                        <label for="projectTitle">Titolo:</label>
+                        <input type="text" id="projectTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectDescription">Descrizione:</label>
+                        <textarea id="projectDescription" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectImage">URL Immagine:</label>
+                        <input type="url" id="projectImage" placeholder="https://esempio.com/immagine.jpg">
+                    </div>
+                    <div class="form-group">
+                        <label for="projectLink">Link Progetto:</label>
+                        <input type="url" id="projectLink" placeholder="https://esempio.com">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Salva Progetto</button>
+                        <button type="button" id="cancelEdit" class="btn btn-secondary" style="display: none;">Annulla</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Projects List -->
+            <div class="admin-section">
+                <h3>Gestisci Progetti</h3>
+                <div id="adminProjectsList" class="admin-projects-list">
+                    <!-- Projects list will be dynamically added here -->
+                </div>
+            </div>
+
+            <div class="admin-actions">
+                <button id="logoutBtn" class="btn btn-danger">Esci</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Portfolio. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
